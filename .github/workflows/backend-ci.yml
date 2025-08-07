@@ -16,27 +16,26 @@ jobs:
       run:
         working-directory: backend
 
-    # Ensure these secrets are defined in your repository's GitHub Actions secrets:
-    # LLM_API, NEWS_API_KEY, TWELVE_DATA_API_KEY
     env:
-      LLM_API: ${{ secrets.LLM_API }} # Uncomment if LLM_API secret is defined
+      LLM_API: ${{ secrets.LLM_API }}
       NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
       TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
 
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🐍 Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
+          cache: "pip"  # Enables caching based on requirements.txt hash
 
       - name: 📦 Install dependencies
         run: |
-          python -m venv venv
-          source venv/bin/activate
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install flake8 pytest  # Ensure these tools are available
 
       - name: 🔍 Lint with flake8
         run: |
@@ -45,5 +44,4 @@ jobs:
 
       - name: ✅ Run tests
         run: |
-          source venv/bin/activate
           pytest
