@@ -9,3 +9,4 @@ google-genai
 # Dev/test tools
 flake8
 pytest
+pytest-asyncio
