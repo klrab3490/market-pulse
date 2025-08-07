@@ -5,7 +5,7 @@ load_dotenv()
 import os
 
 # Initialize Twelve Data client
-td = TDClient(apikey=os.getenv("NEWS_API_KEY"))
+td = TDClient(apikey=os.getenv("TWELVE_DATA_API_KEY"))
 
 # Function to get momentum data for a given ticker
 # This function retrieves the last 6 closing prices to calculate 5 daily returns
