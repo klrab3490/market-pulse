@@ -1,8 +1,7 @@
 from newsapi import NewsApiClient
-from datetime import date, timedelta
+import os
 
-
-newsapi = NewsApiClient(api_key="a5ebc344d56f4d4a9118ab741c4833ca")
+newsapi = NewsApiClient(api_key=os.getenv("NEWS_API_KEY"))
 
 async def get_news(ticker: str):
     try:

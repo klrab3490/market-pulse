@@ -1,12 +1,9 @@
 from twelvedata import TDClient
 from statistics import mean
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # Initialize Twelve Data client
-td = TDClient(apikey="71a9440fcde34ad9a93fc38d13e5d748")
+td = TDClient(apikey=os.getenv("NEWS_API_KEY"))
 
 async def get_momentum(ticker: str):
     try:
