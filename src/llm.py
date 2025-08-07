@@ -7,6 +7,8 @@ from google.genai import types
 # Create the client (this is where the API key is used)
 client = genai.Client(api_key=os.getenv("LLM_API"))
 
+# Define the generation configuration
+# Adjust the thinking budget as needed; 0 means no thinking time
 generation_config = types.GenerateContentConfig(
     thinking_config=types.ThinkingConfig(thinking_budget=0)
 )

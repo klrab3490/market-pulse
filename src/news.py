@@ -1,8 +1,12 @@
 from newsapi import NewsApiClient
 import os
 
+# Initialize NewsAPI client
+# Ensure you have set the NEWS_API_KEY environment variable
 newsapi = NewsApiClient(api_key=os.getenv("NEWS_API_KEY"))
 
+# Function to get news articles for a given ticker
+# This function fetches the latest news articles related to the ticker
 async def get_news(ticker: str):
     try:
         # Fetch articles using the SDK
