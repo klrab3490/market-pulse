@@ -1,5 +1,7 @@
 from twelvedata import TDClient
 from statistics import mean
+from dotenv import load_dotenv
+load_dotenv()
 import os
 
 # Initialize Twelve Data client

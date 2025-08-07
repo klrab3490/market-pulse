@@ -2,7 +2,8 @@ import json
 import os
 from google import genai
 from google.genai import types
-
+from dotenv import load_dotenv
+load_dotenv()
 
 # Create the client (this is where the API key is used)
 client = genai.Client(api_key=os.getenv("LLM_API"))

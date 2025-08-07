@@ -5,3 +5,7 @@ python-dotenv
 twelvedata
 newsapi-python
 google-genai
+
+# Dev/test tools
+flake8
+pytest

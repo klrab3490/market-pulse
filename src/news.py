@@ -1,4 +1,6 @@
 from newsapi import NewsApiClient
+from dotenv import load_dotenv
+load_dotenv()
 import os
 
 # Initialize NewsAPI client
