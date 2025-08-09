@@ -14,7 +14,6 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins = [
-        "https://klrab7200.pythonanywhere.com",
         "https://market-pulse-murex.vercel.app",
         "http://localhost:3000"
     ],
@@ -22,6 +21,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Market Pulse API"}
 
 @app.get("/api/v1/market-pulse")
 async def market_pulse(ticker: str = Query(..., min_length=1)):
