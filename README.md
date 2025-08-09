@@ -104,7 +104,7 @@ npm run dev
 
 ## 📄 License
 
-MIT — feel free to fork and build on it!
+MIT License — see [`LICENSE`](./LICENSE) for details. Feel free to fork and build on it!
 
 ---
 
