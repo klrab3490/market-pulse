@@ -8,21 +8,27 @@ on:
 
 jobs:
   frontend:
-    name: 🌐 Frontend (Next.js)
+    # name: 🌐 Frontend (Next.js)
+
     runs-on: ubuntu-latest
+    
     defaults:
       run:
         working-directory: frontend
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🟢 Set up Node.js
+      - name: 🟢 Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: npm
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       - name: 📦 Install frontend dependencies
         run: npm install
@@ -31,7 +37,7 @@ jobs:
         run: npm run lint
 
       - name: ✅ Run Jest tests
-        run: npm run test -- --ci --watchAll=false
+        run: npm run test
 
       - name: 🔨 Build Next.js app
         run: npm run build
