@@ -1,12 +1,12 @@
-fastapi
-uvicorn
-httpx
-python-dotenv
-twelvedata
-newsapi-python
-google-genai
+httpx=0.28.1
+fastapi=0.116.1
+uvicorn=0.34.2
+twelvedata=1.2.25
+google-genai=1.29.0
+python-dotenv=1.0.1
+newsapi-python=0.2.7
 
 # Dev/test tools
-flake8
-pytest
-pytest-asyncio
+flake8=7.3.0
+pytest=8.4.1
+pytest-asyncio=1.1.0
