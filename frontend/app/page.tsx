@@ -35,7 +35,7 @@ export default function Home() {
         // Implement search logic here
         console.log("Searching for:", ticker);
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/v1/market-pulse?ticker=${ticker}`);
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/market-pulse?ticker=${ticker}`);
             setData(response.data);
             console.log("Search results:", response.data);
         } catch (error) {
