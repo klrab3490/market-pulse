@@ -1,8 +1,12 @@
-from main import app  # Import your FastAPI app
+# src/fastapi_wsgi.py
+import os
+import sys
 
-# WSGI entry point
+# Ensure your project src is in the path
+sys.path.append('/home/klrab7200/market-pulse/src')
+
+from main import app  # Import your FastAPI app object
+
+# WSGI entrypoint for PythonAnywhere
 def application(scope, receive, send):
-    import asyncio
-    from asgiref.wsgi import WsgiToAsgi
-    asgi_app = WsgiToAsgi(app)
-    return asgi_app(scope, receive, send)
+    return app(scope, receive, send)
