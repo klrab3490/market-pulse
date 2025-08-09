@@ -1,13 +1,8 @@
-from fastapi import FastAPI
-from mangum import Mangum  # Optional if you need AWS-style handler
+from main import app  # Import your FastAPI app
 
-from main import app  # Your FastAPI app instance
-
-# WSGI wrapper for PythonAnywhere
-from starlette.middleware.wsgi import WSGIMiddleware
-from flask import Flask
-
-flask_app = Flask(__name__)
-flask_app.wsgi_app = WSGIMiddleware(app)
-
-application = flask_app
+# WSGI entry point
+def application(scope, receive, send):
+    import asyncio
+    from asgiref.wsgi import WsgiToAsgi
+    asgi_app = WsgiToAsgi(app)
+    return asgi_app(scope, receive, send)
