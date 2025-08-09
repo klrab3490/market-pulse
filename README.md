@@ -97,7 +97,8 @@ npm run dev
 - [ ] Support intraday or weekly momentum options
 - [ ] Cache responses using Redis or SQLite
 - [ ] Add ticker suggestions/autocomplete
-- [ ] Deploy to Vercel + Render with CI/CD
+- [ ] Add Docker support for easier deployment
+- [x] Deploy to Vercel + Render with CI/CD
 
 ---
 
