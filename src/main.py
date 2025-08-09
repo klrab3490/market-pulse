@@ -15,6 +15,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins = [
         "https://klrab7200.pythonanywhere.com",
+        "https://market-pulse-murex.vercel.app",
         "http://localhost:3000"
     ],
     allow_credentials=True,
