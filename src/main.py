@@ -10,7 +10,7 @@ from cache import get_cached_response
 
 app = FastAPI()
 
-# ✅ Allow CORS for frontend on localhost:3000
+# ✅ Allow CORS for frontend on localhost:3000 and production source
 app.add_middleware(
     CORSMiddleware,
     allow_origins = [
